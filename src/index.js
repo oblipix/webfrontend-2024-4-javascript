@@ -11,7 +11,33 @@ const valorTotal = readline.questionFloat('Digite o valor total da conta: ');
 const metodoPagamento = readline.question('Qual é o método de pagamento (PIX, dinheiro ou cartão)? ');
 
 
-//Façã sua lógica para aplicar o desconto apenas para PIX OU DINHEIRO
+
+// Variável para armazenar o valor Desconto da conta após aplicar possíveis descontos
+
+
+let valorComDesconto = valorTotal;
+
+
+// Aplicando desconto de 10% se o pagamento for via PIX ou dinheiro
+
+
+
+if (metodoPagamento.toLowerCase() === 'pix' || metodoPagamento.toLowerCase() === 'dinheiro') {
+    valorComDesconto = valorTotal * 0.9; // Aplica 10% de desconto
+}
+
+
+
+// Calculando o valor que cada pessoa deve pagar
+
+
+const valorPorPessoa = valorComDesconto / numeroPessoas;
 
 
 // Exibindo os resultados
+
+
+console.log(`\nO valor total da conta com desconto é: R$ ${valorComDesconto.toFixed(2)}`);
+console.log(`Cada pessoa deve pagar: R$ ${valorPorPessoa.toFixed(2)}`);
+
+ 
